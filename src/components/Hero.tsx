@@ -52,7 +52,7 @@ export function Hero({
           fetchPriority="high"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-linear-to-b from-ink/20 via-ink/10 to-ink/80" />
+      <div className="absolute inset-0 bg-linear-to-b from-ink/40 via-ink/35 to-ink/90 md:from-ink/20 md:via-ink/10 md:to-ink/80" />
 
       <motion.div
         className="absolute inset-0 flex flex-col justify-end will-change-transform"
