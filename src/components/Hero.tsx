@@ -10,6 +10,7 @@ import { useRef } from "react";
 
 type Props = {
   image: string;
+  imageAlt?: string;
   eyebrow?: string;
   title: string | React.ReactNode;
   subtitle?: string;
@@ -19,6 +20,7 @@ type Props = {
 
 export function Hero({
   image,
+  imageAlt = "",
   eyebrow,
   title,
   subtitle,
@@ -47,7 +49,7 @@ export function Hero({
       >
         <img
           src={image}
-          alt=""
+          alt={imageAlt}
           className="h-full w-full object-cover"
           fetchPriority="high"
         />

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
@@ -113,7 +114,7 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-12">
             {otherRooms.map((r, i) => (
               <Reveal key={r.slug} delay={i * 0.1}>
-                <a href={`/quartos/${r.slug}`} className="group flex flex-col">
+                <Link href={`/quartos/${r.slug}`} className="group flex flex-col">
                   <div className="relative aspect-[4/5] overflow-hidden bg-sand">
                     <img
                       src={r.image}
@@ -129,7 +130,7 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
                       Até {r.guests} pessoas · Café da manhã, Wi-Fi e estacionamento
                     </p>
                   </div>
-                </a>
+                </Link>
               </Reveal>
             ))}
           </div>

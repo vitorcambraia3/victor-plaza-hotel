@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -24,6 +25,7 @@ export default function HomePage() {
     <>
       <Hero
         image={heroImage}
+        imageAlt="Fachada do Hotel Victor Plaza Formiga"
         eyebrow="Bem-vindo ao Hotel Victor Plaza Formiga"
         title={"O lugar ideal para você ficar."}
         subtitle="Quartos no centro de Formiga, com café da manhã, Wi-Fi e estacionamento inclusos. Uma equipe que antecipa o que você precisa."
@@ -227,7 +229,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-12">
             {blogPosts.map((post, i) => (
               <Reveal key={post.slug} delay={i * 0.1}>
-                <a href={`/blog/${post.slug}`} className="group flex flex-col">
+                <Link href={`/blog/${post.slug}`} className="group flex flex-col">
                   <div className="relative aspect-4/3 overflow-hidden bg-sand">
                     <img
                       src={post.image}
@@ -244,7 +246,7 @@ export default function HomePage() {
                     <p className="text-sm text-muted">{post.excerpt}</p>
                     <p className="text-xs text-muted-2 mt-1">{post.date}</p>
                   </div>
-                </a>
+                </Link>
               </Reveal>
             ))}
           </div>
