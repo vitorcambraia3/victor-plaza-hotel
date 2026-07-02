@@ -1,16 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { navLinks, contactInfo, HOTEL_NAME } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function Nav() {
-  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -28,8 +27,7 @@ export function Nav() {
 
   const closeMenu = () => setOpen(false);
 
-  const isHome = pathname === "/";
-  const transparent = isHome && !scrolled;
+  const transparent = !scrolled;
 
   return (
     <>
@@ -38,7 +36,7 @@ export function Nav() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           transparent
             ? "bg-transparent"
-            : "bg-paper/85 backdrop-blur-md border-b border-line",
+            : "bg-paper/95 border-b border-line",
         )}
       >
         <nav className="container-x flex items-center justify-between h-14 md:h-16">
@@ -136,8 +134,8 @@ export function Nav() {
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={reduce ? { opacity: 0 } : { opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: reduce ? 0 : undefined }}
                   transition={{ delay: 0.05 + i * 0.05 }}
                 >
                   <Link
@@ -150,8 +148,8 @@ export function Nav() {
                 </motion.div>
               ))}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={reduce ? { opacity: 0 } : { opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: reduce ? 0 : undefined }}
                 transition={{ delay: 0.05 + navLinks.length * 0.05 }}
                 className="mt-4"
               >

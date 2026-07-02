@@ -131,4 +131,73 @@ body {
   }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
+}
+
+/* ── Scroll-driven parallax animations ── */
+
+@keyframes hero-image-parallax {
+  from {
+    transform: translateY(0%) scale(1);
+  }
+  to {
+    transform: translateY(18%) scale(1.12);
+  }
+}
+
+@keyframes hero-text-parallax {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  to {
+    transform: translateY(40%);
+    opacity: 0;
+  }
+}
+
+@keyframes fullbleed-parallax {
+  from {
+    transform: translateY(-12%);
+  }
+  to {
+    transform: translateY(12%);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .hero-image-parallax {
+    animation: hero-image-parallax linear both;
+    animation-timeline: view(block);
+    animation-range: entry 100% exit 0%;
+  }
+
+  .hero-text-parallax {
+    animation: hero-text-parallax linear both;
+    animation-timeline: view(block);
+    animation-range: entry 100% exit 0%;
+  }
+
+  .fullbleed-parallax-wrapper {
+    animation: fullbleed-parallax linear both;
+    animation-timeline: view(block);
+    animation-range: cover;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-image-parallax,
+    .hero-text-parallax,
+    .fullbleed-parallax-wrapper {
+      animation: none;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }

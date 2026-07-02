@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useReducedMotion,
-} from "motion/react";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "motion/react";
 
 type Props = {
   image: string;
@@ -27,39 +21,23 @@ export function Hero({
   children,
   rating,
 }: Props) {
-  const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
     <section
-      ref={ref}
       className="relative h-svh min-h-150 w-full overflow-hidden bg-ink"
     >
-      <motion.div
-        className="absolute inset-0 will-change-transform"
-        style={reduce ? undefined : { y, scale }}
-      >
+      <div className="absolute inset-0 will-change-transform hero-image-parallax">
         <img
           src={image}
           alt={imageAlt}
           className="h-full w-full object-cover"
           fetchPriority="high"
         />
-      </motion.div>
+      </div>
       <div className="absolute inset-0 bg-linear-to-b from-ink/40 via-ink/35 to-ink/90 md:from-ink/20 md:via-ink/10 md:to-ink/80" />
 
-      <motion.div
-        className="absolute inset-0 flex flex-col justify-end will-change-transform"
-        style={reduce ? undefined : { y: textY, opacity }}
-      >
+      <div className="absolute inset-0 flex flex-col justify-end will-change-transform hero-text-parallax">
         <div className="container-x pb-16 md:pb-24">
           {eyebrow && (
             <motion.p
@@ -127,7 +105,7 @@ export function Hero({
             </motion.div>
           )}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

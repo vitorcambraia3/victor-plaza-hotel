@@ -139,7 +139,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section>
+      <Section className="cv-auto">
         <div className="container-x">
           <SectionHeading
             eyebrow="Avaliações"
@@ -212,7 +212,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section>
+      <Section className="cv-auto">
         <div className="container-x">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
             <SectionHeading eyebrow="Dicas" title="Do Hotel Victor Plaza." />
