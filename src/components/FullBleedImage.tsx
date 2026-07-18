@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { useRef } from "react";
+import { useMediaQuery } from "@/lib/hooks";
 
 const MotionImage = motion.create(Image);
 
@@ -16,6 +17,7 @@ type Props = {
 export function FullBleedImage({ src, alt, className, height = "h-[60vh]" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
+  const isDesktop = useMediaQuery("(min-width: 768px)");
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -32,7 +34,7 @@ export function FullBleedImage({ src, alt, className, height = "h-[60vh]" }: Pro
           sizes="100vw"
           quality={100}
           className="object-cover will-change-transform"
-          style={reduce ? undefined : { y }}
+          style={reduce || !isDesktop ? undefined : { y }}
           initial={reduce ? undefined : { scale: 1.1, opacity: 0 }}
           whileInView={reduce ? undefined : { scale: 1, opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}

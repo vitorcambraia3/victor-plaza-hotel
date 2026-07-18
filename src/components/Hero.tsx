@@ -8,6 +8,7 @@ import {
   useReducedMotion,
 } from "motion/react";
 import { useRef } from "react";
+import { useMediaQuery } from "@/lib/hooks";
 
 type Props = {
   image: string;
@@ -30,6 +31,7 @@ export function Hero({
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
+  const isDesktop = useMediaQuery("(min-width: 768px)");
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -46,7 +48,7 @@ export function Hero({
     >
       <motion.div
         className="absolute inset-0 will-change-transform"
-        style={reduce ? undefined : { y, scale }}
+        style={reduce || !isDesktop ? undefined : { y, scale }}
       >
         <Image
           src={image}
