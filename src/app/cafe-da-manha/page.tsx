@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -67,12 +68,14 @@ export default function DiningPage() {
             </Reveal>
           </div>
           <Reveal>
-            <div className="aspect-[4/5] overflow-hidden bg-sand">
-              <img
+            <div className="relative aspect-[4/5] overflow-hidden bg-sand">
+              <Image
                 src={diningFeatureImage}
                 alt="Café da manhã"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 loading="lazy"
-                className="h-full w-full object-cover"
+                className="object-cover"
               />
             </div>
           </Reveal>

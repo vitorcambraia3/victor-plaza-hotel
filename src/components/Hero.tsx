@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   motion,
   useScroll,
@@ -47,11 +48,14 @@ export function Hero({
         className="absolute inset-0 will-change-transform"
         style={reduce ? undefined : { y, scale }}
       >
-        <img
+        <Image
           src={image}
           alt={imageAlt}
-          className="h-full w-full object-cover"
-          fetchPriority="high"
+          fill
+          sizes="100vw"
+          quality={85}
+          priority
+          className="object-cover"
         />
       </motion.div>
       <div className="absolute inset-0 bg-linear-to-b from-ink/40 via-ink/35 to-ink/90 md:from-ink/20 md:via-ink/10 md:to-ink/80" />

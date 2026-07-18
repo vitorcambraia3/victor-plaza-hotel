@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { useRef } from "react";
+
+const MotionImage = motion.create(Image);
 
 type Props = {
   src: string;
@@ -21,17 +24,21 @@ export function FullBleedImage({ src, alt, className, height = "h-[60vh]" }: Pro
 
   return (
     <div ref={ref} className={`relative w-full ${height} overflow-hidden bg-ink ${className ?? ""}`}>
-      <motion.img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        className="absolute left-0 right-0 -top-[20%] h-[140%] w-full object-cover will-change-transform"
-        style={reduce ? undefined : { y }}
-        initial={reduce ? undefined : { scale: 1.1, opacity: 0 }}
-        whileInView={reduce ? undefined : { scale: 1, opacity: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-      />
+      <div className="absolute left-0 right-0 -top-[20%] h-[140%]">
+        <MotionImage
+          src={src}
+          alt={alt}
+          fill
+          sizes="100vw"
+          quality={85}
+          className="object-cover will-change-transform"
+          style={reduce ? undefined : { y }}
+          initial={reduce ? undefined : { scale: 1.1, opacity: 0 }}
+          whileInView={reduce ? undefined : { scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </div>
     </div>
   );
 }

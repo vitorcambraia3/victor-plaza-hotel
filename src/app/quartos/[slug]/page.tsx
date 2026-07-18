@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
@@ -116,11 +117,13 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
               <Reveal key={r.slug} delay={i * 0.1}>
                 <Link href={`/quartos/${r.slug}`} className="group flex flex-col">
                   <div className="relative aspect-[4/5] overflow-hidden bg-sand">
-                    <img
+                    <Image
                       src={r.image}
                       alt={r.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                   </div>
                   <div className="pt-5 flex flex-col gap-1.5">

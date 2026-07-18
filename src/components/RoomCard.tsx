@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
+
+const MotionImage = motion.create(Image);
 
 type Props = {
   href: string;
@@ -15,11 +18,13 @@ export function RoomCard({ href, image, category, name }: Props) {
   return (
     <Link href={href} className="group flex flex-col">
       <div className="relative aspect-[4/5] overflow-hidden bg-sand">
-        <motion.img
+        <MotionImage
           src={image}
           alt={name}
-          loading="lazy"
-          className="h-full w-full object-cover will-change-transform"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          quality={85}
+          className="object-cover will-change-transform"
           initial={reduce ? undefined : { scale: 1 }}
           whileHover={reduce ? undefined : { scale: 1.05 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
@@ -105,12 +106,14 @@ export default function HomePage() {
         <div className="container-x">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <Reveal>
-              <div className="aspect-3/4 overflow-hidden bg-sand">
-                <img
+              <div className="relative aspect-3/4 overflow-hidden bg-sand">
+                <Image
                   src={storyImage}
                   alt="Nossa história"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
-                  className="h-full w-full object-cover"
+                  className="object-cover"
                 />
               </div>
             </Reveal>
@@ -231,11 +234,13 @@ export default function HomePage() {
               <Reveal key={post.slug} delay={i * 0.1}>
                 <Link href={`/blog/${post.slug}`} className="group flex flex-col">
                   <div className="relative aspect-4/3 overflow-hidden bg-sand">
-                    <img
+                    <Image
                       src={post.image}
                       alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                   </div>
                   <div className="pt-5 flex flex-col gap-2">

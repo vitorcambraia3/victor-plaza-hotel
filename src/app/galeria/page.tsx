@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
@@ -24,11 +25,14 @@ export default function GalleryPage() {
           <div className="columns-2 md:columns-3 gap-4 md:gap-6 [&>*]:mb-4 md:[&>*]:mb-6">
             {galleryImages.map((src, i) => (
               <Reveal key={i} delay={(i % 3) * 0.08}>
-                <img
+                <Image
                   src={src}
                   alt=""
+                  width={800}
+                  height={600}
+                  sizes="(max-width: 768px) 50vw, 33vw"
                   loading="lazy"
-                  className="w-full break-inside-avoid"
+                  className="w-full h-auto break-inside-avoid"
                 />
               </Reveal>
             ))}

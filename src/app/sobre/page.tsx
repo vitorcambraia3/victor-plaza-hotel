@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -70,12 +71,15 @@ export default function AboutPage() {
           <SectionHeading eyebrow="O hotel" title="Um passeio por dentro." className="mb-12" />
           <div className="columns-2 md:columns-3 gap-4 md:gap-6 [&>img]:mb-4 md:[&>img]:mb-6">
             {galleryImages.map((src, i) => (
-              <img
+              <Image
                 key={i}
                 src={src}
                 alt=""
+                width={800}
+                height={600}
+                sizes="(max-width: 768px) 50vw, 33vw"
                 loading="lazy"
-                className="w-full break-inside-avoid rounded-none"
+                className="w-full h-auto break-inside-avoid rounded-none"
               />
             ))}
           </div>
