@@ -74,6 +74,7 @@ export default function DiningPage() {
                 alt="Café da manhã"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
+                quality={100}
                 loading="lazy"
                 className="object-cover"
               />

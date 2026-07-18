@@ -78,6 +78,7 @@ export default function AboutPage() {
                 width={800}
                 height={600}
                 sizes="(max-width: 768px) 50vw, 33vw"
+                quality={100}
                 loading="lazy"
                 className="w-full h-auto break-inside-avoid rounded-none"
               />

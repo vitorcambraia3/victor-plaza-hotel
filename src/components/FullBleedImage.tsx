@@ -30,7 +30,7 @@ export function FullBleedImage({ src, alt, className, height = "h-[60vh]" }: Pro
           alt={alt}
           fill
           sizes="100vw"
-          quality={85}
+          quality={100}
           className="object-cover will-change-transform"
           style={reduce ? undefined : { y }}
           initial={reduce ? undefined : { scale: 1.1, opacity: 0 }}

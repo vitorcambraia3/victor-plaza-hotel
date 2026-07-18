@@ -53,7 +53,7 @@ export function Hero({
           alt={imageAlt}
           fill
           sizes="100vw"
-          quality={85}
+          quality={100}
           priority
           className="object-cover"
         />

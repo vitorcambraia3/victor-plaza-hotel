@@ -112,6 +112,7 @@ export default function HomePage() {
                   alt="Nossa história"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={100}
                   loading="lazy"
                   className="object-cover"
                 />
@@ -239,6 +240,7 @@ export default function HomePage() {
                       alt={post.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      quality={100}
                       loading="lazy"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
