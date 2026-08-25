@@ -25,7 +25,7 @@ export const contactInfo = {
   instagramHandle: "@hotel_victorplaza",
   email: "contato@hotelvictorplaza.com.br",
   emailHref: "mailto:contato@hotelvictorplaza.com.br",
-  checkIn: "12:00",
+  checkIn: "14:00",
   checkOut: "11:00",
 };
 
@@ -54,7 +54,7 @@ export const rooms: Room[] = [
     image: `${IMG}/quarto-standard.jpg`,
     description: "Quarto acolhedor e bem equipado, com ventilador de teto e tudo o que você precisa para uma estadia tranquila.",
     shortDescription: "Quarto acolhedor e bem equipado, com ventilador de teto e tudo o que você precisa para uma estadia tranquila.",
-    guests: 5,
+    guests: 4,
     size: 24,
     bed: "Cama de solteiro/casal",
     amenities: [...amenitiesBase, "Ventilador de teto"],
@@ -84,7 +84,7 @@ export const rooms: Room[] = [
     image: `${IMG}/quarto-presidencial.jpg`,
     description: "Nosso quarto mais completo, com banheira de hidromassagem, além de tudo o que já é oferecido nos demais quartos.",
     shortDescription: "Nosso quarto mais completo, com banheira de hidromassagem, além de tudo o que já é oferecido nos demais quartos.",
-    guests: 5,
+    guests: 2,
     size: 65,
     bed: "Cama de casal king",
     amenities: [...amenitiesBase, "Ventilador de teto", "Ar-condicionado", "Frigobar", "Banheira de hidromassagem"],
@@ -252,7 +252,7 @@ export const menu: MenuItem[] = [
 ];
 
 export const diningHours = [
-  { label: "Café da manhã (diário)", start: "06:00", end: "10:00" },
+  { label: "Café da manhã (diário)", start: "06:30", end: "09:00" },
 ];
 
 export type GalleryImage = { src: string; alt: string };
@@ -273,11 +273,11 @@ export type Faq = { question: string; answer: string };
 export const roomFaqs: Faq[] = [
   {
     question: "Qual é o horário de check-in e check-out?",
-    answer: "O check-in é a partir das 12:00 e o check-out até as 11:00. Check-in antecipado e check-out tardio podem ser combinados conforme disponibilidade. Entre em contato pelo WhatsApp que fazemos o possível para acomodar você.",
+    answer: "O check-in é a partir das 14:00 e o check-out até as 11:00. Check-in antecipado e check-out tardio podem ser combinados conforme disponibilidade. Entre em contato pelo WhatsApp que fazemos o possível para acomodar você.",
   },
   {
     question: "O café da manhã está incluso?",
-    answer: "Sim. O café da manhã está incluso na diária para todos os hóspedes e é servido diariamente das 06:00 às 10:00.",
+    answer: "Sim. O café da manhã está incluso na diária para todos os hóspedes e é servido diariamente das 06:30 às 09:00.",
   },
   {
     question: "Vocês aceitam animais de estimação?",
@@ -289,7 +289,7 @@ export const roomFaqs: Faq[] = [
   },
   {
     question: "Quantas pessoas o quarto comporta?",
-    answer: "Todos os nossos quartos comportam até 5 pessoas. Informe no WhatsApp quantas pessoas vão se hospedar para que possamos preparar o quarto adequadamente.",
+    answer: "A capacidade varia conforme o tipo de quarto: Standard até 4, Luxo até 5 e Presidencial até 2. Informe no WhatsApp quantas pessoas vão se hospedar para que possamos preparar o quarto adequadamente.",
   },
   {
     question: "O Wi-Fi é gratuito?",
@@ -324,7 +324,7 @@ export const legalPages: LegalPage[] = [
     sections: [
       { heading: "Reservas", body: "Todas as reservas estão sujeitas à disponibilidade e são confirmadas mediante contato prévio pelo WhatsApp ou telefone. As diárias são por quarto, por noite." },
       { heading: "Cancelamento", body: "Cancelamentos feitos com pelo menos 48 horas de antecedência à data prevista de chegada não geram cobrança. Cancelamentos com menos de 48 horas podem incorrer na cobrança da primeira diária." },
-      { heading: "Check-in e Check-out", body: "O check-in é a partir das 12:00 e o check-out até as 11:00. Solicitações de check-in antecipado ou check-out tardio estão sujeitos à disponibilidade." },
+      { heading: "Check-in e Check-out", body: "O check-in é a partir das 14:00 e o check-out até as 11:00. Solicitações de check-in antecipado ou check-out tardio estão sujeitos à disponibilidade." },
       { heading: "Responsabilidade", body: "O Hotel Victor Plaza Formiga não se responsabiliza por perda ou dano a bens pessoais deixados nos quartos ou áreas comuns. Objetos de valor devem ser guardados na recepção." },
       { heading: "Contato", body: "Para qualquer dúvida sobre estes termos, entre em contato pelo WhatsApp +55 37 3321-4152." },
     ],

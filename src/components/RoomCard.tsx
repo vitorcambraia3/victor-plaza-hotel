@@ -11,9 +11,10 @@ type Props = {
   image: string;
   category: string;
   name: string;
+  guests: number;
 };
 
-export function RoomCard({ href, image, category, name }: Props) {
+export function RoomCard({ href, image, category, name, guests }: Props) {
   const reduce = useReducedMotion();
   return (
     <Link href={href} className="group flex flex-col">
@@ -36,7 +37,7 @@ export function RoomCard({ href, image, category, name }: Props) {
           {name}
         </h3>
         <p className="text-sm text-muted">
-          Até 5 pessoas · Diária com café da manhã, Wi-Fi e estacionamento
+          Até {guests} pessoas · Diária com café da manhã, Wi-Fi e estacionamento
         </p>
       </div>
     </Link>

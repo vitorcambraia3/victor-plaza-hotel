@@ -8,7 +8,7 @@ import { heroImage, stats, galleryImages } from "@/lib/data";
 
 export const metadata = {
   title: "Sobre — Hotel Victor Plaza Formiga",
-  description: "No centro de Formiga, com café da manhã, Wi-Fi e estacionamento inclusos. Quartos para até 5 pessoas.",
+  description: "No centro de Formiga, com café da manhã, Wi-Fi e estacionamento inclusos.",
 };
 
 export default function AboutPage() {
@@ -31,7 +31,7 @@ export default function AboutPage() {
                 O Hotel Victor Plaza Formiga nasceu de uma ideia simples: oferecer uma estadia tranquila e completa no centro de Formiga. Cada decisão, dos quartos ao café da manhã, parte da mesma pergunta: isso torna a estadia melhor?
               </p>
               <p>
-                Temos três tipos de quarto — standard, luxo e presidencial — todos com banheiro, TV e escrivaninha, com capacidade para até 5 pessoas. Café da manhã, Wi-Fi e estacionamento são inclusos na diária, sem surpresas.
+                Temos três tipos de quarto — standard, luxo e presidencial — todos com banheiro, TV e escrivaninha. Café da manhã, Wi-Fi e estacionamento são inclusos na diária, sem surpresas.
               </p>
             </div>
           </Reveal>

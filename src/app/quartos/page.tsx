@@ -16,7 +16,7 @@ export default function RoomsPage() {
         image={heroImage}
         eyebrow="Quartos"
         title="Encontre seu quarto."
-        subtitle="Três tipos de quarto, do standard ao presidencial. Todos com até 5 pessoas, café da manhã, Wi-Fi e estacionamento inclusos."
+        subtitle="Três tipos de quarto, do standard ao presidencial. Café da manhã, Wi-Fi e estacionamento inclusos."
       />
       <Section>
         <div className="container-x">
@@ -28,6 +28,7 @@ export default function RoomsPage() {
                   image={room.image}
                   category={room.category}
                   name={room.name}
+                  guests={room.guests}
                 />
               </Reveal>
             ))}

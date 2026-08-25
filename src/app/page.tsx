@@ -63,6 +63,7 @@ export default function HomePage() {
                   image={room.image}
                   category={room.category}
                   name={room.name}
+                  guests={room.guests}
                 />
               </Reveal>
             ))}
