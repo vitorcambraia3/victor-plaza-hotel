@@ -222,7 +222,7 @@ export default function HomePage() {
             <SectionHeading eyebrow="Dicas" title="Do Hotel Victor Plaza." />
             <Reveal delay={0.1}>
               <Button
-                href="/blog/guia-do-centro-de-formiga"
+                href="/blog"
                 variant="ghost-black"
                 size="md"
               >

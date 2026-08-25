@@ -12,10 +12,15 @@ export function Accordion({ items }: { items: Faq[] }) {
     <div className="divide-y divide-line border-y border-line">
       {items.map((item, i) => {
         const isOpen = open === i;
+        const buttonId = `faq-button-${i}`;
+        const panelId = `faq-panel-${i}`;
         return (
           <div key={i}>
             <button
               onClick={() => setOpen(isOpen ? null : i)}
+              aria-expanded={isOpen}
+              aria-controls={panelId}
+              id={buttonId}
               className="flex w-full items-center justify-between py-5 text-left gap-6"
             >
               <span className="font-display text-lg md:text-xl font-semibold text-ink">
@@ -35,6 +40,9 @@ export function Accordion({ items }: { items: Faq[] }) {
               {isOpen && (
                 <motion.div
                   key="content"
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
                   initial={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
                   animate={reduce ? { opacity: 1 } : { height: "auto", opacity: 1 }}
                   exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}

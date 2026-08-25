@@ -57,12 +57,12 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
                 <SectionHeading eyebrow="O que está incluso" title="Comodidades do quarto." />
                 <ul className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-3">
                   {room.amenities.map((a) => (
-                    <Reveal key={a}>
-                      <li className="flex items-center gap-3 py-2 border-b border-line">
+                    <li key={a} className="py-2 border-b border-line">
+                      <Reveal className="flex items-center gap-3">
                         <span className="h-1.5 w-1.5 rounded-full bg-ink" />
                         <span className="text-sm">{a}</span>
-                      </li>
-                    </Reveal>
+                      </Reveal>
+                    </li>
                   ))}
                 </ul>
               </div>

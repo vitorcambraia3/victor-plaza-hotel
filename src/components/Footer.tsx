@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { navLinks, contactInfo, HOTEL_NAME, legalPages } from "@/lib/data";
+import { CurrentYear } from "./CurrentYear";
 
 export function Footer() {
   return (
@@ -140,7 +141,7 @@ export function Footer() {
 
         <div className="mt-14 pt-6 border-t border-line flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
           <p className="text-xs text-muted">
-            &copy; {new Date().getFullYear()} {HOTEL_NAME}. Todos os direitos
+            &copy; <CurrentYear /> {HOTEL_NAME}. Todos os direitos
             reservados.
           </p>
           <p className="text-xs text-muted">

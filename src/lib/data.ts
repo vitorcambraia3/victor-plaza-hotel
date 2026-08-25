@@ -255,15 +255,17 @@ export const diningHours = [
   { label: "Café da manhã (diário)", start: "06:00", end: "10:00" },
 ];
 
-export const galleryImages = [
-  `${IMG}/galeria-1.jpg`,
-  `${IMG}/galeria-2.jpg`,
-  `${IMG}/galeria-3.jpg`,
-  `${IMG}/galeria-4.jpg`,
-  `${IMG}/galeria-5.jpg`,
-  `${IMG}/galeria-6.jpg`,
-  `${IMG}/galeria-7.jpg`,
-  `${IMG}/galeria-8.jpg`,
+export type GalleryImage = { src: string; alt: string };
+
+export const galleryImages: GalleryImage[] = [
+  { src: `${IMG}/galeria-1.jpg`, alt: "Quarto com cama de casal, mesa de madeira e banheira de hidromassagem em mármore" },
+  { src: `${IMG}/galeria-2.jpg`, alt: "Quarto amplo com duas camas de casal, mesa de trabalho e TV" },
+  { src: `${IMG}/galeria-3.jpg`, alt: "Fachada do Hotel Victor Plaza Formiga durante o dia" },
+  { src: `${IMG}/galeria-4.jpg`, alt: "Suíte com área de estar, sofá, poltronas e janela com vista da cidade" },
+  { src: `${IMG}/galeria-5.jpg`, alt: "Banheira de hidromassagem em mármore ao lado de pias duplas" },
+  { src: `${IMG}/galeria-6.jpg`, alt: "Cama de casal com cabeceira estofada, colcha floral e criado-mudo" },
+  { src: `${IMG}/galeria-7.jpg`, alt: "Decoração romântica com rosas vermelhas e toalhas em formato de cisne sobre a cama" },
+  { src: `${IMG}/galeria-8.jpg`, alt: "Banheiro com pias duplas sobre bancada de mármore e espelho amplo" },
 ];
 
 export type Faq = { question: string; answer: string };

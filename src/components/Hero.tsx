@@ -87,7 +87,7 @@ export function Hero({
           </motion.h1>
           {subtitle && (
             <motion.p
-              className="mt-6 max-w-sm text-lead text-paper/85 text-sm"
+              className="mt-6 max-w-sm text-sm md:text-lead text-paper/85"
               initial={reduce ? undefined : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{

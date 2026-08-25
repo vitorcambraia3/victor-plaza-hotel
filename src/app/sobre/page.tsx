@@ -70,11 +70,11 @@ export default function AboutPage() {
         <div className="container-x">
           <SectionHeading eyebrow="O hotel" title="Um passeio por dentro." className="mb-12" />
           <div className="columns-2 md:columns-3 gap-4 md:gap-6 [&>img]:mb-4 md:[&>img]:mb-6">
-            {galleryImages.map((src, i) => (
+            {galleryImages.map((img) => (
               <Image
-                key={i}
-                src={src}
-                alt=""
+                key={img.src}
+                src={img.src}
+                alt={img.alt}
                 width={800}
                 height={600}
                 sizes="(max-width: 768px) 50vw, 33vw"

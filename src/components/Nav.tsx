@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { navLinks, contactInfo, HOTEL_NAME } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -10,6 +10,7 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const reduce = useReducedMotion();
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -22,6 +23,22 @@ export function Nav() {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    closeButtonRef.current?.focus();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const closeOnDesktop = () => setOpen(false);
+    window.addEventListener("keydown", onKeyDown);
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      desktop.removeEventListener("change", closeOnDesktop);
     };
   }, [open]);
 
@@ -82,7 +99,8 @@ export function Nav() {
               Reservar pelo WhatsApp
             </a>
             <button
-              aria-label="Open menu"
+              aria-label="Abrir menu"
+              aria-expanded={open}
               onClick={() => setOpen(true)}
               className={cn(
                 "md:hidden flex h-10 w-10 items-center justify-center rounded-full transition-colors",
@@ -116,7 +134,8 @@ export function Nav() {
                 {HOTEL_NAME}
               </span>
               <button
-                aria-label="Close menu"
+                ref={closeButtonRef}
+                aria-label="Fechar menu"
                 onClick={() => setOpen(false)}
                 className="flex h-10 w-10 items-center justify-center rounded-full text-ink"
               >

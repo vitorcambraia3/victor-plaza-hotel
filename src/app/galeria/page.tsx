@@ -23,11 +23,11 @@ export default function GalleryPage() {
       <Section>
         <div className="container-x">
           <div className="columns-2 md:columns-3 gap-4 md:gap-6 [&>*]:mb-4 md:[&>*]:mb-6">
-            {galleryImages.map((src, i) => (
-              <Reveal key={i} delay={(i % 3) * 0.08}>
+            {galleryImages.map((img, i) => (
+              <Reveal key={img.src} delay={(i % 3) * 0.08}>
                 <Image
-                  src={src}
-                  alt=""
+                  src={img.src}
+                  alt={img.alt}
                   width={800}
                   height={600}
                   sizes="(max-width: 768px) 50vw, 33vw"
